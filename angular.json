@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "palette-maker"
+    }
+  },
+  "defaultProject": "palette-maker",
+  "cli": {
+    "analytics": "84b67eca-05b8-4fdc-b5b6-33abfd863149"
+  }
 }
