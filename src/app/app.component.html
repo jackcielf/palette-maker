@@ -1,1 +1,39 @@
-<p>{{ title }}</p>
+<section class="palette-maker">
+  <div>
+    Digite a cor ou selecione:
+    <div>
+      <input
+        pInputText
+        type="text"
+        placeholder="#000000"
+        [(ngModel)]="color"
+      />
+
+      <p-colorPicker
+        class="color-picker"
+        [(ngModel)]="color"
+      ></p-colorPicker>
+    </div>
+  </div>
+  
+  <p-button
+    class="p-button"
+    label="Pronto"
+    [disabled]="hasColorValid()"
+    (onClick)="createColorsPrimariesAndSecondaries()"
+  ></p-button>
+</section>
+
+<section *ngIf="color" class="palette-maker__colors">
+  <div *ngFor="let item of colorVariants; let i = index">
+    <h3 *ngIf="i === 0">Cores primárias</h3>
+    <h3 *ngIf="i === 1">Cores secundárias</h3>
+    
+    <div *ngFor="let variant of item | keyvalue">
+      <p-colorPicker
+      class="color-picker__color"
+      [ngModel]="variant?.value"
+      ></p-colorPicker>
+    </div>
+  </div>
+</section>
